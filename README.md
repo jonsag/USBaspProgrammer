@@ -4,11 +4,19 @@ My adaption of [Thomas Fischl's construction](https://www.fischl.de/usbasp/).
 
 This README concentrates on using ATmega88, and uploading it with avrisp, with a device such as [this one](https://github.com/jonsag/ardAVRProgrammer).  
 
-## Firmware
+## Compile and upload
 
 Put the ATmega88 in the programming device, and  
 
 >$ cd Firmware/firmware
+
+Test avrdude  
+
+>$ make avrdude
+
+Compile, upload and set fuses  
+
+>$ make clean
 >
 >$ make main.hex
 >
