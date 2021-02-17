@@ -267,23 +267,10 @@ F 3 "" H 8400 3100 50  0001 C CNN
 	1    8400 3100
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector_Generic:Conn_02x05_Odd_Even SV1
-U 1 1 6027CBC7
-P 6450 5350
-F 0 "SV1" H 6500 5767 50  0000 C CNN
-F 1 "Conn_02x05_Odd_Even" H 6500 5676 50  0000 C CNN
-F 2 "My_Misc:IDC-Header_2x05_P2.54mm_Vertical_large" H 6450 5350 50  0001 C CNN
-F 3 "~" H 6450 5350 50  0001 C CNN
-	1    6450 5350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2700 3400 8150 3400
 Wire Wire Line
 	8150 3400 8150 5350
-Wire Wire Line
-	8150 5350 6750 5350
 $Comp
 L Device:R R5
 U 1 1 60287479
@@ -298,11 +285,7 @@ $EndComp
 Wire Wire Line
 	7850 3500 7850 4100
 Wire Wire Line
-	7850 5250 6750 5250
-Wire Wire Line
 	7850 4400 7850 5250
-Wire Wire Line
-	6750 5150 7100 5150
 Wire Wire Line
 	7100 5150 7100 4850
 Wire Wire Line
@@ -507,23 +490,23 @@ Connection ~ 3550 3600
 Wire Wire Line
 	3550 3600 3550 5150
 Wire Wire Line
-	6750 5450 6850 5450
+	7050 5450 7150 5450
 Wire Wire Line
-	6850 5450 6850 5550
+	7150 5450 7150 5550
 Wire Wire Line
-	6850 5550 6750 5550
+	7150 5550 7050 5550
 $Comp
 L power:GND #PWR0112
 U 1 1 603924CB
-P 6850 5900
-F 0 "#PWR0112" H 6850 5650 50  0001 C CNN
-F 1 "GND" H 6855 5727 50  0000 C CNN
-F 2 "" H 6850 5900 50  0001 C CNN
-F 3 "" H 6850 5900 50  0001 C CNN
-	1    6850 5900
+P 7150 5900
+F 0 "#PWR0112" H 7150 5650 50  0001 C CNN
+F 1 "GND" H 7155 5727 50  0000 C CNN
+F 2 "" H 7150 5900 50  0001 C CNN
+F 3 "" H 7150 5900 50  0001 C CNN
+	1    7150 5900
 	1    0    0    -1  
 $EndComp
-Connection ~ 6850 5550
+Connection ~ 7150 5550
 Wire Wire Line
 	9250 3350 9350 3350
 Wire Wire Line
@@ -546,7 +529,7 @@ Wire Wire Line
 Wire Wire Line
 	6000 2000 6000 5150
 $Comp
-L My_Parts:ATmega88-20PU U1
+L USBaspProgrammer_Thomas-Fischl-rescue:ATmega88-20PU-My_Parts U1
 U 1 1 60289587
 P 2100 2900
 F 0 "U1" H 1456 2946 50  0000 R CNN
@@ -652,5 +635,22 @@ Connection ~ 3200 6450
 Wire Wire Line
 	3200 6450 3550 6450
 Wire Wire Line
-	6850 5550 6850 5900
+	7150 5550 7150 5900
+$Comp
+L My_Parts:ISP_header_Conn_02x05_Odd_Even J2
+U 1 1 60314D33
+P 6450 5350
+F 0 "J2" H 6650 5775 50  0000 C CNN
+F 1 "ISP_header_Conn_02x05_Odd_Even" H 6650 5684 50  0000 C CNN
+F 2 "My_Misc:IDC-Header_2x05_P2.54mm_Vertical_large" H 6450 5350 50  0001 C CNN
+F 3 "~" H 6450 5350 50  0001 C CNN
+	1    6450 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 5150 7050 5150
+Wire Wire Line
+	7850 5250 7050 5250
+Wire Wire Line
+	8150 5350 7050 5350
 $EndSCHEMATC

@@ -109,3 +109,16 @@ Solution at [https://openrcforums.com/forum/viewtopic.php?t=2731](https://openrc
     ii avr-libc 1:1.8.0-2 all Standard C library for Atmel AVR developm
     ii binutils-avr 2.20.1-3 amd64 Binary utilities supporting Atmel's AVR t
     ii gcc-avr 1:4.7.0-2 amd64 The GNU C compiler (cross compiler for av
+
+## Notes
+
+Connections on different MCUs  
+
+            10Pin           6pin    ATmega328/328P          ATtiny4313      ATtiny85
+MOSI    ->  1           ->  4   ->  17/PB3                  17/PB5          5/AREF/PB0
+MISO    ->  9           ->  1   ->  18/PB4                  18/PB6          6/PB1
+SCK     ->  7           ->  3   ->  19/PB5                  19/PB7          7/PB2
+RST     ->  5           ->  5   ->  1/RESET/PC6,21/AREF     1/RESET/PA2     1/RESET/PB5
+        ->                          9/XTAL1/PB6
+VCC     ->  2           ->  2   ->  7/VCC,20/VSS            20/VCC          8/VCC
+GND     ->  4,6,8,10    ->  6   ->  8/GND,22/GND            10/GND          4/GND
