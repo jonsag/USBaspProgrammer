@@ -58,7 +58,7 @@ F 3 "~" H 5600 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 6700 3050 0    50   ~ 0
-ATmega328/328P
+ATmega88/328/328P
 Text Notes 6650 3850 0    50   ~ 0
 ATtiny4313
 Text Notes 6750 4700 0    50   ~ 0
@@ -83,21 +83,8 @@ Text GLabel 3400 3150 0    50   Input ~ 0
 1
 Text GLabel 3400 3750 0    50   Input ~ 0
 7
-Text GLabel 4300 3950 2    50   Input ~ 0
-20
-Text GLabel 6550 2700 1    50   Input ~ 0
+Text GLabel 6400 2800 2    50   Input ~ 0
 7
-Text GLabel 6750 2700 1    50   Input ~ 0
-20
-Wire Wire Line
-	6750 2800 6750 2700
-Wire Wire Line
-	6550 2700 6550 2800
-Wire Wire Line
-	6200 2800 6550 2800
-Connection ~ 6550 2800
-Wire Wire Line
-	6550 2800 6750 2800
 Wire Wire Line
 	5400 2800 5200 2800
 Wire Wire Line
@@ -106,36 +93,16 @@ Wire Wire Line
 	5400 3100 5200 3100
 Wire Wire Line
 	5400 3200 5200 3200
-Wire Wire Line
-	6200 3100 6300 3100
-Wire Wire Line
-	6300 3100 6300 3200
-Wire Wire Line
-	6300 3200 6200 3200
 Text GLabel 3400 3850 0    50   Input ~ 0
 8
-Text GLabel 4300 3750 2    50   Input ~ 0
-22
-Text GLabel 6400 3100 2    50   Input ~ 0
-8
 Text GLabel 6400 3200 2    50   Input ~ 0
-22
-Wire Wire Line
-	6400 3100 6300 3100
-Connection ~ 6300 3100
-Wire Wire Line
-	6400 3200 6300 3200
-Connection ~ 6300 3200
+8
 Wire Wire Line
 	3600 3150 3400 3150
 Wire Wire Line
 	3600 3750 3400 3750
 Wire Wire Line
 	3600 3850 3400 3850
-Wire Wire Line
-	4100 3750 4300 3750
-Wire Wire Line
-	4300 3950 4100 3950
 Wire Wire Line
 	4300 4050 4100 4050
 Wire Wire Line
@@ -166,7 +133,7 @@ Text GLabel 4300 3150 2    50   Input ~ 0
 28
 Text GLabel 3400 3450 0    50   Input ~ 0
 4
-Text GLabel 6400 4800 2    50   Input ~ 0
+Text GLabel 6400 4900 2    50   Input ~ 0
 4
 Wire Wire Line
 	5400 4500 5200 4500
@@ -177,15 +144,6 @@ Wire Wire Line
 Wire Wire Line
 	5400 4900 5200 4900
 Wire Wire Line
-	6200 4800 6300 4800
-Wire Wire Line
-	6200 4900 6300 4900
-Wire Wire Line
-	6300 4900 6300 4800
-Connection ~ 6300 4800
-Wire Wire Line
-	6300 4800 6400 4800
-Wire Wire Line
 	6200 4500 6400 4500
 Wire Wire Line
 	4300 3250 4100 3250
@@ -195,9 +153,6 @@ Wire Wire Line
 	4300 3350 4100 3350
 Wire Wire Line
 	4300 3450 4100 3450
-Wire Wire Line
-	3650 3450 3600 3450
-Connection ~ 3600 3450
 Wire Wire Line
 	3600 3450 3400 3450
 Text GLabel 5200 3650 0    50   Input ~ 0
@@ -210,19 +165,10 @@ Text GLabel 5200 3850 0    50   Input ~ 0
 1
 Text GLabel 6400 3650 2    50   Input ~ 0
 28
-Text GLabel 6400 3950 2    50   Input ~ 0
+Text GLabel 6400 4050 2    50   Input ~ 0
 10
 Wire Wire Line
 	6400 3650 6200 3650
-Wire Wire Line
-	6200 3950 6300 3950
-Wire Wire Line
-	6300 3950 6300 4050
-Wire Wire Line
-	6300 4050 6200 4050
-Wire Wire Line
-	6300 3950 6400 3950
-Connection ~ 6300 3950
 Wire Wire Line
 	5400 4050 5200 4050
 Wire Wire Line
@@ -231,4 +177,12 @@ Wire Wire Line
 	5400 3850 5200 3850
 Wire Wire Line
 	5200 3650 5400 3650
+Wire Wire Line
+	6200 3200 6400 3200
+Wire Wire Line
+	6200 4050 6400 4050
+Wire Wire Line
+	6200 4900 6400 4900
+Wire Wire Line
+	6400 2800 6200 2800
 $EndSCHEMATC
