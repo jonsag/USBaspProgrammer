@@ -3,6 +3,7 @@
 My adaption of [Thomas Fischl's construction](https://www.fischl.de/usbasp/).  
 
 This README concentrates on using ATmega88, and uploading it with avrisp, with a device such as [this one](https://github.com/jonsag/ardAVRProgrammer).  
+Use the ICSP header on the programmer, and remember to set jumper J2.  
 
 ## Compile and upload
 
@@ -14,15 +15,172 @@ Test avrdude
 
 >$ make avrdude
 
+    avrdude -c avrisp -p atmega88 -P /dev/ttyUSB0 -b 19200 -v
+
+    avrdude: Version 6.3
+            Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+            Copyright (c) 2007-2014 Joerg Wunsch
+
+            System wide configuration file is "/etc/avrdude.conf"
+            User configuration file is "/home/jon/.avrduderc"
+            User configuration file does not exist or is not a regular file, skipping
+
+            Using Port                    : /dev/ttyUSB0
+            Using Programmer              : avrisp
+            Overriding Baud Rate          : 19200
+            AVR Part                      : ATmega88
+            Chip Erase delay              : 9000 us
+            PAGEL                         : PD7
+            BS2                           : PC2
+            RESET disposition             : dedicated
+            RETRY pulse                   : SCK
+            serial program mode           : yes
+            parallel program mode         : yes
+            Timeout                       : 200
+            StabDelay                     : 100
+            CmdexeDelay                   : 25
+            SyncLoops                     : 32
+            ByteDelay                     : 0
+            PollIndex                     : 3
+            PollValue                     : 0x53
+            Memory Detail                 :
+
+                                    Block Poll               Page                       Polled
+            Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+            ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+            eeprom        65    20     4    0 no        512    4      0  3600  3600 0xff 0xff
+            flash         65     6    64    0 yes      8192   64    128  4500  4500 0xff 0xff
+            lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+            hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+            efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+            lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+            calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+            signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+            Programmer Type : STK500
+            Description     : Atmel AVR ISP
+            Hardware Version: 2
+            Firmware Version: 1.18
+            Topcard         : Unknown
+            Vtarget         : 0.0 V
+            Varef           : 0.0 V
+            Oscillator      : Off
+            SCK period      : 0.1 us
+
+    avrdude: AVR device initialized and ready to accept instructions
+
+    Reading | ################################################## | 100% 0.08s
+
+    avrdude: Device signature = 0x1e930a (probably m88)
+    avrdude: safemode: hfuse reads as DF
+    avrdude: safemode: efuse reads as F9
+
+    avrdude: safemode: hfuse reads as DF
+    avrdude: safemode: efuse reads as F9
+    avrdude: safemode: Fuses OK (E:F9, H:DF, L:62)
+
+    avrdude done.  Thank you.
+
 Compile, upload and set fuses  
 
 >$ make clean
->
+
+    rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.bin *.o main.s usbdrv/*.o
+
 >$ make main.hex
->
+
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -x assembler-with-cpp -c usbdrv/usbdrvasm.S -o usbdrv/usbdrvasm.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -c usbdrv/oddebug.c -o usbdrv/oddebug.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -c isp.c -o isp.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -c clock.c -o clock.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -x assembler-with-cpp -c tpi.S -o tpi.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -c main.c -o main.o
+    avr-gcc -Wall -O2 -Iusbdrv -I. -mmcu=atmega88  -o main.bin usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o isp.o clock.o tpi.o main.o -Wl,-Map,main.map
+    rm -f main.hex main.eep.hex
+    avr-objcopy -j .text -j .data -O ihex main.bin main.hex
+
 >$ make flash
->
+
+    avrdude -c avrisp -p atmega88 -P /dev/ttyUSB0 -b 19200 -U flash:w:main.hex
+
+    avrdude: AVR device initialized and ready to accept instructions
+
+    Reading | ################################################## | 100% 0.08s
+
+    avrdude: Device signature = 0x1e930a (probably m88)
+    avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+            To disable this feature, specify the -D option.
+    avrdude: erasing chip
+    avrdude: reading input file "main.hex"
+    avrdude: input file main.hex auto detected as Intel Hex
+    avrdude: writing flash (4400 bytes):
+
+    Writing | ################################################## | 100% 7.60s
+
+    avrdude: 4400 bytes of flash written
+    avrdude: verifying flash memory against main.hex:
+    avrdude: load data flash data from input file main.hex:
+    avrdude: input file main.hex auto detected as Intel Hex
+    avrdude: input file main.hex contains 4400 bytes
+    avrdude: reading on-chip flash data:
+
+    Reading | ################################################## | 100% 5.38s
+
+    avrdude: verifying ...
+    avrdude: 4400 bytes of flash verified
+
+    avrdude: safemode: Fuses OK (E:F9, H:DF, L:62)
+
+    avrdude done.  Thank you.
+
 >$ make fuses
+
+    avrdude -c avrisp -p atmega88 -P /dev/ttyUSB0 -b 19200 -u -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m
+
+    avrdude: AVR device initialized and ready to accept instructions
+
+    Reading | ################################################## | 100% 0.08s
+
+    avrdude: Device signature = 0x1e930a (probably m88)
+    avrdude: reading input file "0xDD"
+    avrdude: writing hfuse (1 bytes):
+
+    Writing | ################################################## | 100% 0.09s
+
+    avrdude: 1 bytes of hfuse written
+    avrdude: verifying hfuse memory against 0xDD:
+    avrdude: load data hfuse data from input file 0xDD:
+    avrdude: input file 0xDD contains 1 bytes
+    avrdude: reading on-chip hfuse data:
+
+    Reading | ################################################## | 100% 0.03s
+
+    avrdude: verifying ...
+    avrdude: 1 bytes of hfuse verified
+    avrdude: reading input file "0xFF"
+    avrdude: writing lfuse (1 bytes):
+
+    Writing | ################################################## | 100% 0.09s
+
+    avrdude: 1 bytes of lfuse written
+    avrdude: verifying lfuse memory against 0xFF:
+    avrdude: load data lfuse data from input file 0xFF:
+    avrdude: input file 0xFF contains 1 bytes
+    avrdude: reading on-chip lfuse data:
+
+    Reading | ################################################## | 100% 0.03s
+
+    avrdude: verifying ...
+    avrdude: 1 bytes of lfuse verified
+
+    avrdude done.  Thank you.
+
+## Define device rules
+
+>$ sudo cp \<PATH>/Documents/linux-nonroot/99-USBasp.rules /etc/udev/rules.d/99-USBasp.rules
+>
+>$ sudo udevadm control --reload-rules
 
 ## From Thomas Fischl's README
 
@@ -110,7 +268,7 @@ Solution at [https://openrcforums.com/forum/viewtopic.php?t=2731](https://openrc
     ii binutils-avr 2.20.1-3 amd64 Binary utilities supporting Atmel's AVR t
     ii gcc-avr 1:4.7.0-2 amd64 The GNU C compiler (cross compiler for av
 
-## Notes
+## My notes
 
 Connections on different MCUs  
 
