@@ -277,6 +277,7 @@ MOSI    ->  1           ->  4   ->  17/PB3                  17/PB5          5/AR
 MISO    ->  9           ->  1   ->  18/PB4                  18/PB6          6/PB1  
 SCK     ->  7           ->  3   ->  19/PB5                  19/PB7          7/PB2  
 RST     ->  5           ->  5   ->  1/RESET/PC6,21/AREF     1/RESET/PA2     1/RESET/PB5  
-        ->                          9/XTAL1/PB6  
 VCC     ->  2           ->  2   ->  7/VCC                   20/VCC          8/VCC  
 GND     ->  4,6,8,10    ->  6   ->  8/GND                   10/GND          4/GND  
+XTAL1                               9/XTAL1                 5/XTAL1         2/XTAL1
+XTAL2                               10/XTAL2                4/XTAL2         3/XTAL2
