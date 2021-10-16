@@ -140,7 +140,7 @@ Read fuses
 
     avrdude done.  Thank you.
 
-All three confirms fuses are 
+All three confirms fuses are  
 
     LFuse = 0x62 
     HFuse = 0xDF 
