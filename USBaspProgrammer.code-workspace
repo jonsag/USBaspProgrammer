@@ -1,0 +1,48 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"ahlms",
+			"Boardv",
+			"BODEN",
+			"BODLEVEL",
+			"checksize",
+			"CKDIV",
+			"CKOPT",
+			"CKOUT",
+			"CKSEL",
+			"DDEBUG",
+			"developm",
+			"dpart",
+			"dprog",
+			"dserial",
+			"DWEN",
+			"EESAVE",
+			"Fischl",
+			"Hanns",
+			"ihex",
+			"Indx",
+			"Informatica",
+			"Iusbdrv",
+			"Joerg",
+			"Keyspan",
+			"objcopy",
+			"oddebug",
+			"Ooijen",
+			"Oszil",
+			"RSTDISBL",
+			"SPIEN",
+			"Technische",
+			"Ubuntuish",
+			"Unger",
+			"usbaspatmega",
+			"usbdrvasm",
+			"WDTON",
+			"Wunsch"
+		]
+	}
+}
