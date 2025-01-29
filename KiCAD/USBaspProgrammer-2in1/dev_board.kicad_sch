@@ -45,7 +45,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, double row, 02x14, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, double row, 02x14, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3998,7 +3998,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 223.52 63.5 0)
 			(effects
 				(font
@@ -4089,7 +4089,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Jumper, 2-pole, open"
 			(at 97.79 54.61 0)
 			(effects
 				(font
@@ -4170,7 +4170,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 50.8 82.55 0)
 			(effects
 				(font
@@ -4237,7 +4237,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Jumper, 2-pole, open"
 			(at 97.79 36.83 0)
 			(effects
 				(font
@@ -4268,73 +4268,6 @@
 			(project "USBaspProgrammer-2in1"
 				(path "/60a91d9b-2ac1-482f-8ebc-8942a39c62ee/74024b97-4e24-4233-8b0d-04daabb9e951"
 					(reference "JP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Crystal")
-		(at 44.45 73.66 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "563e0401-b518-4046-8c88-37f7ad940f7f")
-		(property "Reference" "Y2"
-			(at 44.45 66.8528 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Crystal"
-			(at 44.45 69.1642 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "My_Headers:2-pin_Crystal_header_large"
-			(at 44.45 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 44.45 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 44.45 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9f9d853c-4b39-498b-a7ae-38b5e2dfebfa")
-		)
-		(pin "2"
-			(uuid "20306845-9462-4583-9588-0ed5da8f2cb5")
-		)
-		(instances
-			(project "USBaspProgrammer-2in1"
-				(path "/60a91d9b-2ac1-482f-8ebc-8942a39c62ee/74024b97-4e24-4233-8b0d-04daabb9e951"
-					(reference "Y2")
 					(unit 1)
 				)
 			)
@@ -4383,7 +4316,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 223.52 85.09 0)
 			(effects
 				(font
@@ -4432,6 +4365,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Crystal")
+		(at 44.45 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "98b6ee28-180a-4733-ae14-b7720c8e51c4")
+		(property "Reference" "Y2"
+			(at 44.45 66.8528 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Crystal"
+			(at 44.45 69.1642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "My_Misc:Crystal_HC49-4H_Vertical_large"
+			(at 44.45 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Two pin crystal"
+			(at 44.45 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c68173bc-9bb1-46c7-9b38-a5552f68ea16")
+		)
+		(pin "2"
+			(uuid "a3916dd4-ad26-47ec-afa6-a04b3c393c2f")
+		)
+		(instances
+			(project "USBaspProgrammer-2in1"
+				(path "/60a91d9b-2ac1-482f-8ebc-8942a39c62ee/74024b97-4e24-4233-8b0d-04daabb9e951"
+					(reference "Y2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "My_Parts:ISP_header_Conn_02x05_Odd_Even")
 		(at 223.52 41.91 0)
 		(unit 1)
@@ -4474,7 +4474,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 223.52 41.91 0)
 			(effects
 				(font
@@ -4567,7 +4567,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 38.1 82.55 0)
 			(effects
 				(font
@@ -4634,7 +4634,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Jumper, 2-pole, open"
 			(at 97.79 72.39 0)
 			(effects
 				(font
@@ -4713,7 +4713,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x14, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 163.83 73.66 0)
 			(effects
 				(font
