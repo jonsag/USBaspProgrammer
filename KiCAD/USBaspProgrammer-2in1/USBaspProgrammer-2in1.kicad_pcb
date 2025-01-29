@@ -14851,6 +14851,18 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "USBaspProgrammer-2in1"
+		(at 125.095 100.965 90)
+		(layer "F.SilkS")
+		(uuid "40fad917-9ae2-4f21-a57b-b90ee9d3fae6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "JP1: Firmware upgrade\nJP2: Power target\nJP3: Slow clock option"
 		(at 177.165 116.84 90)
 		(layer "F.SilkS")
