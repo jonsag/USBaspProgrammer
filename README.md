@@ -81,7 +81,7 @@ Test avrdude
 
     avrdude done.  Thank you.
 
-Compile, upload and set fuses  
+Clean, compile, upload and set fuses  
 
 >$ make clean
 
